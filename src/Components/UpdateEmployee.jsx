@@ -51,6 +51,7 @@ const UpdateEmployee = () => {
   return (
      <div id="form_parent">
       <form onSubmit={handleSubmit} id="form">
+        <h1>Update a Employee</h1>
         <label htmlFor="name">Full Name</label>
         <br />
         <input type="text" id="name" name="name" placeholder="Enter your full name" value={name} onChange={handleChange} size={65} />

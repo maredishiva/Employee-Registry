@@ -15,14 +15,21 @@ useEffect(()=>{
   fetchData()
 },[])
   return (
-    <div>
-     {employee == null ? "Loading...":<article>
-        <h1>{employee.name}</h1>
-        <h3>{employee.designation}</h3>
-        <p>{employee.phone}</p>
-        <p>{employee.dob}</p>
-        <p>{employee.email}</p>
-        <img src={employee.photo} alt={employee.name} height="200" width="200"/>
+    <div id="view_parent">
+     {employee == null ? "Loading...":<article id="view_article">
+        <aside id="view_aside_one">
+          <img src={employee.photo} alt={employee.name} height="200" width="200"/>
+        </aside>
+        <aside id="view_aside_two">
+          <h1>{employee.name}</h1>
+          <h3>{employee.designation}</h3>
+          <hr />
+          <h4>CONTACT INFORMATION</h4>
+          <p>{employee.phone}</p>
+          <p>{employee.email}</p>
+          <h4>DATE OF BIRTH</h4>
+          <p>{employee.dob}</p>
+        </aside>
       </article>}
     </div>
   )
