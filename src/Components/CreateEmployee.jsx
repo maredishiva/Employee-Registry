@@ -39,6 +39,7 @@ const CreateEmployee = () => {
   return (
     <div id="form_parent">
       <form onSubmit={handleSubmit} id="form">
+        <h1>Create a Employee</h1>
         <label htmlFor="name">Full Name</label>
         <br />
         <input type="text" id="name" name="name" placeholder="Enter your full name" value={name} onChange={handleChange} size={65} />
@@ -67,7 +68,7 @@ const CreateEmployee = () => {
           <input type="submit" value="Create Employee"/>
           <br/><br/>
           <ToastContainer/>
-          <button onClick={()=>navigate("/")}>Go to Home</button>
+          <button type="button" onClick={()=>navigate("/")}>Go to Home</button>
         </div>
       </form>
     </div>

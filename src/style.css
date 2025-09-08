@@ -36,17 +36,20 @@ nav>button{
  }
 #form{
     border: 2px solid black;
-    /* border: 3px solid blue; */
-    /* background-color: rgba(0, 0, 0, 0.46);
-    background-color: #6b8e23;
-    background-image: linear-gradient(to right, #e0c3fc, #8ec5fc);
-    background-image: linear-gradient(to right, #667eea, #764ba2); */
     background-image: linear-gradient(to right, #4b2e59, #4c4a4a);
     padding-left:50px ;
     padding-right:50px ;
     padding-top:50px ;
     padding-bottom:50px ;
     border-radius: 15px;
+    
+}
+#form>h1{
+
+    height: 60px;
+    display: grid;
+    place-items: center;
+    color: royalblue;
     
 }
 #form:hover{
