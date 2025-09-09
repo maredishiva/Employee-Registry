@@ -157,6 +157,12 @@ button{
     background-color: rgb(87, 123, 233);
     cursor: pointer;
 }
+#button_view:hover{
+    background-color: goldenrod;
+}
+#button_update:hover{
+    background-color: green;
+}
 #button_delete:hover{
     background-color: red;
 }

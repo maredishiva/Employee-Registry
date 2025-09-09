@@ -29,13 +29,13 @@ const Home = () => {
               <img src={employee.photo} alt={employee.name} height="150" width="150" id="home_img"/>
               <h1>{employee.name}</h1>
               <h4>{employee.designation}</h4>
-              <p id="home_email">📧{employee.email}</p>
-              <p id="home_phone">📞{employee.phone}</p>
-              <p id="home_dob">📅{employee.dob}</p>
+              <p id="home_email"><i class="fa-solid fa-envelope"></i>{employee.email}</p>
+              <p id="home_phone"><i class="fa-solid fa-phone"></i>{employee.phone}</p>
+              <p id="home_dob"><i class="fa-solid fa-calendar"></i>{employee.dob}</p>
               <div id="buttons">
-                <button id="button_view" onClick={()=>navigator(`/view-employee/${employee.id}`)}>👁️View</button>
-                <button id="button_update" onClick={()=>navigator(`/update-employee/${employee.id}`)}>🗒️Update</button>
-                <button id="button_delete" onClick={()=>handleDelete(employee.id)}>Delete</button>
+                <button id="button_view" onClick={()=>navigator(`/view-employee/${employee.id}`)}> <i class="fa-regular fa-eye"></i>View</button>
+                <button id="button_update" onClick={()=>navigator(`/update-employee/${employee.id}`)}> <i class="fa-solid fa-pen-to-square"></i>Update</button>
+                <button id="button_delete" onClick={()=>handleDelete(employee.id)}><i class="fa-solid fa-trash"></i>Delete</button>
               </div>
               </article>
               })}
