@@ -1,12 +1,94 @@
-# React + Vite
+# 👨‍💼 Employee Registry
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React.js-based Employee Management web application that allows users to **create, view, update, and delete** employee details dynamically. The app uses **JSON Server** as a mock backend and provides a smooth UI experience with libraries like **Formik**, **Axios**, and **React Toastify**.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+-  **Add Employee** – Create and store employee details in the json-server.  
+-  **Employee Cards** – Each employee is displayed as an individual card.  
+-  **View Employee** – Displays a single employee’s details on a separate page.  
+-  **Update Employee** – Edit and update employee information seamlessly.  
+-  **Delete Employee** – Permanently removes the selected employee from the json-server.  
+-  **Live JSON Server Integration** – Uses `json-server` to simulate a RESTful backend.  
+-  **Toast Notifications** – Provides instant success/error feedback for every action.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Installation
+
+### 1. Clone the Repository
+  
+    git clone https://github.com/your-username/employee-registry.git)
+    
+    cd employee-registry
+
+### 2. JSON Server
+
+- Create a file named `db.json` in the root folder.
+
+- In `db.json`:
+  ```bash
+    {
+      "employees":[{}]
+    }
+### 3. Intall JSON Server(globally)
+
+    npm install -g json-server
+
+### 4. Run the JSON Server
+
+    json-server --watch db.json
+    
+This will start the server at
+👉 http://localhost:3000/employees
+
+### 5. React-toastify
+
+    npm i react-toastify
+
+### 6. Axios
+
+    npm i axios
+
+### 7. Formik
+
+    npm i formik
+
+### 8. Router
+
+    npm i react-router-dom@latest
+
+### 9. Run the React App
+
+    npm run dev
+
+  Visit 👉 http://localhost:5173
+
+## 🧭 How to Use
+
+1.Click **“Create Employee”** to add a new employee.
+  
+2.All employees will be displayed as individual cards.
+
+3.Use:
+
+   - **View** → to see employee details on a dedicated page.
+   
+   - **Update** → to edit employee information.
+
+   - **Delete** → to remove the employee from the database.
+
+4.All actions are reflected in the JSON Server database instantly.
+
+## 📘 Important Notes
+
+- Make sure both the React app and JSON server are running simultaneously.
+
+
+
+
+
+
+
+
+
+
