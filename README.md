@@ -28,7 +28,7 @@ A React.js-based Employee Management web application that allows users to **crea
 - In `db.json`:
   ```bash
     {
-      "employees":[{}]
+      "employees":[{},]
     }
 ### 3. Intall JSON Server(globally)
 
@@ -41,23 +41,11 @@ A React.js-based Employee Management web application that allows users to **crea
 This will start the server at
 👉 http://localhost:3000/employees
 
-### 5. React-toastify
+### 5. Inatall React
 
-    npm i react-toastify
+   npm install
 
-### 6. Axios
-
-    npm i axios
-
-### 7. Formik
-
-    npm i formik
-
-### 8. Router
-
-    npm i react-router-dom@latest
-
-### 9. Run the React App
+### 6. Run the React App
 
     npm run dev
 
