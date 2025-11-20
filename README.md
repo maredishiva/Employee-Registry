@@ -43,7 +43,7 @@ This will start the server at
 
 ### 5. Inatall React
 
-   npm install
+    npm install
 
 ### 6. Run the React App
 
