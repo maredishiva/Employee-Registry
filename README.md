@@ -17,7 +17,7 @@ A React.js-based Employee Management web application that allows users to **crea
 
 ### 1. Clone the Repository
   
-    git clone https://github.com/maredishiva/employee-registry.git)
+    git clone https://github.com/maredishiva/employee-registry.git
     
     cd employee-registry
 
