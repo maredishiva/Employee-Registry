@@ -1,9 +1,11 @@
 import axios from "axios"
 import { useFormik } from "formik"
 import { useNavigate } from "react-router-dom"
-import { ToastContainer, toast } from 'react-toastify';
+import { useState } from "react"
+import "../styles/alerts.css"
 
 const CreateEmployee = () => {
+  const [message, setMessage] = useState("")
     let navigate = useNavigate()
     let formik = useFormik({
       initialValues:{
@@ -14,14 +16,17 @@ const CreateEmployee = () => {
         email:"",
         photo:""
       },
-      onSubmit:(details,{resetForm})=>{
-        // console.log(details)
-        axios.post("http://localhost:3000/employee",details)
-        resetForm() //Resetting the form after sumbitting
-        toast.success("Data Submitted Successfully") //For popup
-        setTimeout(()=>{
+      onSubmit: async (details,{resetForm})=>{
+        try {
+          await axios.post("http://localhost:3000/employee",details)
+          resetForm() //Resetting the form after sumbitting
+          setMessage("Created employee successfully")
+          window.alert("Created employee successfully")
           navigate("/")
-        },5000)
+        } catch (error) {
+          setMessage("Failed to create employee")
+          console.error(error)
+        }
       }
     })
     let handleImageChange = (e)=>{
@@ -40,6 +45,7 @@ const CreateEmployee = () => {
     <div id="form_parent">
       <form onSubmit={handleSubmit} id="form">
         <h1>Create a Employee</h1>
+        {message && <div className="inline-alert">{message}</div>}
         <label htmlFor="name">Full Name</label>
         <br />
         <input type="text" id="name" name="name" placeholder="Enter your full name" value={name} onChange={handleChange} size={65} />
@@ -67,7 +73,6 @@ const CreateEmployee = () => {
         <div id="for_buttons">
           <input type="submit" value="Create Employee"/>
           <br/><br/>
-          <ToastContainer/>
           <button type="button" onClick={()=>navigate("/")}>Go to Home</button>
         </div>
       </form>

@@ -1,90 +1,165 @@
-import axios from "axios"
-import { useFormik } from "formik"
-import { useEffect } from "react"
-import { useNavigate } from "react-router-dom"
-import { ToastContainer,toast } from "react-toastify"
-import { useParams } from "react-router-dom"
+import axios from "axios";
+import { useFormik } from "formik";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import "../styles/update-employee.css";
+import "../styles/alerts.css";
 
 const UpdateEmployee = () => {
-  let navigator = useNavigate()
-  let {id} = useParams()
+  const navigator = useNavigate();
+  const { id } = useParams();
+  const [message, setMessage] = useState("");
 
-  let formik = useFormik(
-      {
-        initialValues:{
-          name:"",
-          email:"",
-          phone:"",
-          dob:"",
-          designation:"",
-          photo:""
-        },
-        onSubmit:(details,{resetForm})=>{
-          axios.put(`http://localhost:3000/employee/${id}`,details)
-          resetForm()
-          toast.success("Updated Employee Successfully")
-          setTimeout(()=>{
-            navigator("/")
-          },5000)
-        }
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      phone: "",
+      dob: "",
+      designation: "",
+      photo: "",
+    },
+    onSubmit: async (details, { resetForm }) => {
+      try {
+        await axios.put(`http://localhost:3000/employee/${id}`, details);
+        resetForm();
+        setMessage("Updated employee details successfully");
+        window.alert("Updated employee details successfully");
+        navigator("/");
+      } catch (error) {
+        setMessage("Failed to update employee");
+        console.error(error);
       }
-    )
-  let handleImageChange = (e)=>{
-    let file = e.target.files[0]
-    if(file){
-      let reader = new FileReader()
-      reader.onload =()=>{
-        formik.setFieldValue("photo",reader.result)
-      }
-      reader.readAsDataURL(file)
+    },
+  });
+
+  const handleImageChange = (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        formik.setFieldValue("photo", reader.result);
+      };
+      reader.readAsDataURL(file);
     }
-  }
-  let fetchData = async()=>{
-    let {data} = await axios.get(`http://localhost:3000/employee/${id}`)
-    formik.setValues(data)
-  }
-  useEffect(()=>{
-    fetchData()
-  },[])
-  let {name,email,phone,dob,designation} = formik.values
-  let {handleChange,handleSubmit} = formik
-  return (
-     <div id="form_parent">
-      <form onSubmit={handleSubmit} id="form">
-        <h1>Update a Employee</h1>
-        <label htmlFor="name">Full Name</label>
-        <br />
-        <input type="text" id="name" name="name" placeholder="Enter your full name" value={name} onChange={handleChange} size={65} />
-        <br/><br/>
-        <label htmlFor="phone">Phone Number</label>
-        <br />
-        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" value={phone} onChange={handleChange} size={65}/>
-        <br/><br/>
-        <label htmlFor="dob">Date of Birth</label>
-        <br />
-        <input type="date" id="dob" name="dob" value={dob} onChange={handleChange} size={65}/>
-        <br/><br/>
-        <label htmlFor="email">Email Address</label>
-        <br />
-        <input type="email" id="email" name="email" placeholder="Enter your email address" value={email} onChange={handleChange} size={65}/>
-        <br/><br/>
-        <label htmlFor="designation">Designation</label>
-        <br />
-        <input type="designation" id="designation" name="designation" placeholder="Enter your job title/desigantion" value={designation} onChange={handleChange} size={65}/>
-        <br/><br/>
-        <label htmlFor="photo">Upload Photo</label>
-        <br />
-        <input type="file" id="photo" name="photo" onChange={handleImageChange}/>
-        <br/><br/>
-        <div id="for_buttons">
-          <input type="submit" value="Update Employee"/>
-          <br/><br/>
-          <ToastContainer/>
-          <button onClick={()=>navigator("/")}>Go to Home</button>
-        </div>
-      </form>
-    </div>
-  )
-}
+  };
 
-export default UpdateEmployee
+  const fetchData = async () => {
+    const { data } = await axios.get(`http://localhost:3000/employee/${id}`);
+    formik.setValues(data);
+  };
+
+  useEffect(() => {
+    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
+
+  const { name, email, phone, dob, designation, photo } = formik.values;
+  const { handleChange, handleSubmit } = formik;
+
+  const photoPreview =
+    photo ||
+    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80";
+
+  return (
+    <div className="update-container">
+      <div className="update-card">
+        <div className="update-header">
+          <div>
+            <p className="eyebrow">Edit Profile</p>
+            <h1>Update Employee</h1>
+            <p className="subtext">Refresh contact, role, and profile photo.</p>
+          </div>
+          <div className="avatar-preview">
+            <img src={photoPreview} alt={name || "Employee"} />
+          </div>
+        </div>
+
+        {message && <div className="inline-alert">{message}</div>}
+
+        <form onSubmit={handleSubmit} className="update-form">
+          <div className="form-grid">
+            <label className="field">
+              <span>Full Name</span>
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter full name"
+                value={name}
+                onChange={handleChange}
+                required
+              />
+            </label>
+
+            <label className="field">
+              <span>Designation</span>
+              <input
+                type="text"
+                name="designation"
+                placeholder="Enter job title"
+                value={designation}
+                onChange={handleChange}
+                required
+              />
+            </label>
+
+            <label className="field">
+              <span>Email Address</span>
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter email"
+                value={email}
+                onChange={handleChange}
+                required
+              />
+            </label>
+
+            <label className="field">
+              <span>Phone Number</span>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Enter phone number"
+                value={phone}
+                onChange={handleChange}
+                required
+              />
+            </label>
+
+            <label className="field">
+              <span>Date of Birth</span>
+              <input
+                type="date"
+                name="dob"
+                value={dob}
+                onChange={handleChange}
+                required
+              />
+            </label>
+
+            <label className="field file-field">
+              <span>Profile Photo</span>
+              <div className="file-input">
+                <input type="file" accept="image/*" onChange={handleImageChange} />
+                <div className="file-hint">PNG, JPG up to 2MB</div>
+              </div>
+            </label>
+          </div>
+
+          <div className="actions">
+            <button type="button" className="ghost-btn" onClick={() => navigator("/")}>
+              Cancel
+            </button>
+            <button type="submit" className="primary-btn">
+              Save Changes
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default UpdateEmployee;

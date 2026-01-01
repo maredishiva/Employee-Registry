@@ -1,0 +1,470 @@
+/* Update Employee Form */
+
+.update-container {
+  min-height: calc(100vh - 70px);
+  padding: 36px 18px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 18% 20%, rgba(102, 126, 234, 0.14), transparent 34%),
+    radial-gradient(circle at 82% 18%, rgba(6, 182, 212, 0.14), transparent 36%),
+    radial-gradient(circle at 50% 90%, rgba(118, 75, 162, 0.16), transparent 40%),
+    var(--bg-primary, #0f172a);
+}
+
+.update-card {
+  width: min(1100px, 100%);
+  background: var(--bg-glass, rgba(255, 255, 255, 0.08));
+  border: 1.5px solid var(--border-color, rgba(255, 255, 255, 0.22));
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.25);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.update-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.16), rgba(6, 182, 212, 0.12));
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.update-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.update-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.update-header h1 {
+  margin: 4px 0;
+  font-size: 28px;
+  color: var(--text-primary, #e2e8f0);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--text-secondary, #94a3b8);
+  margin: 0;
+}
+
+.subtext {
+  margin: 0;
+  color: var(--text-secondary, #94a3b8);
+  font-size: 14px;
+}
+
+.avatar-preview {
+  width: 110px;
+  height: 110px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(6, 182, 212, 0.2));
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.avatar-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.update-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--bg-card, rgba(255, 255, 255, 0.08));
+  border: 1.5px solid var(--border-color, rgba(255, 255, 255, 0.2));
+  border-radius: 14px;
+  padding: 12px 14px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.field span {
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-secondary, #94a3b8);
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="tel"],
+.field input[type="date"] {
+  height: 42px;
+  border-radius: 10px;
+  border: 1.2px solid var(--border-color, rgba(255, 255, 255, 0.22));
+  padding: 0 12px;
+  background: var(--bg-glass, rgba(255, 255, 255, 0.06));
+  color: var(--text-primary, #e2e8f0);
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: rgba(102, 126, 234, 0.7);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+.file-field .file-input {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.file-field input[type="file"] {
+  border: 1.2px dashed rgba(255, 255, 255, 0.25);
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary, #e2e8f0);
+}
+
+.file-hint {
+  font-size: 12px;
+  color: var(--text-secondary, #94a3b8);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.primary-btn,
+.ghost-btn {
+  min-width: 150px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.92), rgba(6, 182, 212, 0.92));
+  color: white;
+  box-shadow: 0 14px 30px rgba(102, 126, 234, 0.25);
+}
+
+.primary-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 34px rgba(6, 182, 212, 0.32);
+}
+
+.ghost-btn {
+  background: transparent;
+  color: var(--text-primary, #e2e8f0);
+}
+
+.ghost-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Mobile Responsive Design */
+
+@media (max-width: 768px) {
+  .update-container {
+    padding: 20px 14px 40px;
+    min-height: calc(100vh - 60px);
+    align-items: flex-start;
+  }
+
+  .update-card {
+    padding: 24px 18px;
+    border-radius: 20px;
+    gap: 20px;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.3);
+  }
+
+  .update-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 18px;
+  }
+
+  .update-header h1 {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+
+  .subtext {
+    font-size: 13px;
+    max-width: 100%;
+  }
+
+  .avatar-preview {
+    width: 100px;
+    height: 100px;
+    border-radius: 14px;
+    order: -1;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .update-form {
+    gap: 16px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .field {
+    padding: 14px 12px;
+    border-radius: 12px;
+    gap: 10px;
+  }
+
+  .field span {
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="tel"],
+  .field input[type="date"] {
+    height: 46px;
+    font-size: 15px;
+    padding: 0 14px;
+    border-radius: 10px;
+  }
+
+  .file-field input[type="file"] {
+    padding: 14px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+
+  .file-hint {
+    font-size: 11px;
+  }
+
+  .actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .primary-btn,
+  .ghost-btn {
+    width: 100%;
+    min-width: auto;
+    height: 50px;
+    font-size: 15px;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .update-container {
+    padding: 16px 12px 36px;
+  }
+
+  .update-card {
+    padding: 20px 16px;
+    border-radius: 18px;
+    gap: 18px;
+  }
+
+  .update-header {
+    gap: 16px;
+  }
+
+  .update-header h1 {
+    font-size: 22px;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+  }
+
+  .subtext {
+    font-size: 12px;
+  }
+
+  .avatar-preview {
+    width: 90px;
+    height: 90px;
+    border-radius: 12px;
+  }
+
+  .update-form {
+    gap: 14px;
+  }
+
+  .form-grid {
+    gap: 12px;
+  }
+
+  .field {
+    padding: 12px 10px;
+  }
+
+  .field span {
+    font-size: 10px;
+  }
+
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="tel"],
+  .field input[type="date"] {
+    height: 44px;
+    font-size: 14px;
+    padding: 0 12px;
+  }
+
+  .file-field input[type="file"] {
+    padding: 12px;
+    font-size: 12px;
+  }
+
+  .file-hint {
+    font-size: 10px;
+  }
+
+  .primary-btn,
+  .ghost-btn {
+    height: 48px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 430px) {
+  .update-container {
+    padding: 20px 16px 80px;
+    min-height: 932px;
+    justify-content: flex-start;
+    padding-top: 30px;
+    padding-bottom: 250px;
+  }
+
+  .update-card {
+    padding: 24px 20px;
+    border-radius: 18px;
+    gap: 20px;
+    max-width: 398px;
+    width: 100%;
+  }
+
+  .update-header {
+    gap: 18px;
+  }
+
+  .update-header h1 {
+    font-size: 24px;
+    margin: 6px 0;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+
+  .subtext {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .avatar-preview {
+    width: 100px;
+    height: 100px;
+    border-radius: 14px;
+  }
+
+  .update-form {
+    gap: 16px;
+  }
+
+  .form-grid {
+    gap: 14px;
+  }
+
+  .field {
+    padding: 14px 12px;
+    border-radius: 12px;
+    gap: 10px;
+  }
+
+  .field span {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="tel"],
+  .field input[type="date"] {
+    height: 48px;
+    font-size: 15px;
+    padding: 0 14px;
+    border-radius: 10px;
+  }
+
+  .file-field input[type="file"] {
+    padding: 14px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+
+  .file-hint {
+    font-size: 11px;
+  }
+
+  .actions {
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .primary-btn,
+  .ghost-btn {
+    height: 52px;
+    font-size: 15px;
+    border-radius: 12px;
+    font-weight: 700;
+  }
+}

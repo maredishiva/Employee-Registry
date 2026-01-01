@@ -1,0 +1,58 @@
+/* Theme Variables */
+
+:root {
+  /* Light Theme Colors */
+  --bg-primary: linear-gradient(135deg, #eef2ff 0%, #f8f9ff 50%, #fafbff 100%);
+  --bg-secondary: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(102, 126, 234, 0.05) 100%);
+  --bg-card: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(102, 126, 234, 0.08) 100%);
+  --bg-glass: rgba(255, 255, 255, 0.7);
+  --bg-glass-hover: rgba(255, 255, 255, 0.85);
+  
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --text-light: #9ca3af;
+  
+  --border-color: rgba(102, 126, 234, 0.15);
+  --border-color-hover: rgba(102, 126, 234, 0.4);
+  
+  --shadow-sm: 0 4px 16px rgba(102, 126, 234, 0.1);
+  --shadow-md: 0 8px 32px rgba(102, 126, 234, 0.15);
+  --shadow-lg: 0 20px 40px rgba(102, 126, 234, 0.25);
+  
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-secondary: linear-gradient(135deg, #667eea 0%, #06b6d4 50%, #764ba2 100%);
+  --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #667eea 100%);
+}
+
+[data-theme='dark'] {
+  /* Dark Theme Colors */
+  --bg-primary: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  --bg-secondary: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(102, 126, 234, 0.08) 100%);
+  --bg-card: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(102, 126, 234, 0.1) 100%);
+  --bg-glass: rgba(30, 41, 59, 0.7);
+  --bg-glass-hover: rgba(30, 41, 59, 0.85);
+  
+  --text-primary: #ffffff;
+  --text-secondary: #e2e8f0;
+  --text-muted: #cbd5e1;
+  --text-light: #94a3b8;
+  
+  --border-color: rgba(148, 163, 184, 0.2);
+  --border-color-hover: rgba(148, 163, 184, 0.4);
+  
+  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.5);
+  
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-secondary: linear-gradient(135deg, #667eea 0%, #06b6d4 50%, #764ba2 100%);
+  --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #667eea 100%);
+}
+
+/* Apply theme to body */
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
+}

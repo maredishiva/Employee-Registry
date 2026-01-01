@@ -71,6 +71,75 @@ This will start the server at
 
 - Make sure both the React app and JSON server are running simultaneously.
 
+## 🔐 Authentication & Authorization
+
+**User Roles:**
+- **Admin** – Full access to create, update, delete employees and view activity logs
+- **Employee** – Can only view employee details and filter employees
+
+**Features:**
+- User registration with email and password validation
+- Secure login with role-based access control
+- Protected routes that redirect unauthenticated users to login
+- User profile view with personal information
+- Session persistence using localStorage
+
+## 📊 Admin Dashboard (Admin Only)
+
+- Total employee count
+- Employees by designation (with progress bars)
+- Recent additions (last 5 employees)
+- Click-to-filter by designation
+
+## 📝 Activity Logs (Admin Only)
+
+- Track CREATE, UPDATE, DELETE, LOGIN/LOGOUT events
+- Filter by action type
+- Pagination (10 logs per page)
+- Sorted by timestamp (newest first)
+
+## 🎨 Theme System
+
+- Light/Dark mode toggle in navbar
+- Persistent theme in localStorage
+- Applied system-wide
+
+## 🔍 Search & Filter
+
+- Real-time search by name or email
+- Filter by job designation
+- Alphabetical sorting (A-Z / Z-A)
+- Shareable filtered views via URL
+
+## 📄 Pagination
+
+- 6 items per page (Home)
+- 10 items per page (Activity Logs)
+- Resets on filter/search changes
+
+## 💻 Tech Stack
+
+- **React 19.1.1** – UI library
+- **React Router 7.8.2** – Routing
+- **Formik 2.4.6** – Form validation
+- **Axios 1.11.0** – HTTP requests
+- **React Toastify 11.0.5** – Notifications
+- **Vite 7.1.2** – Build tool
+- **JSON Server 1.0.0-beta.3** – Mock API
+
+
+
+## 🎯 Application Workflow
+
+1. **Registration** → Create account with credentials
+2. **Login** → Authenticate and access dashboard
+3. **Home** → View all employees with search/filter
+4. **Admin Actions** → Create, Update, Delete employees
+5. **Dashboard** → View analytics and statistics
+6. **Activity Logs** → Track all system actions
+
+
+
 
 
 

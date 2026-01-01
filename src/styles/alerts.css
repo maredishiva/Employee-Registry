@@ -1,0 +1,11 @@
+.inline-alert {
+  margin: 0 0 16px 0;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--bg-card, rgba(255, 255, 255, 0.08));
+  border: 1.2px solid var(--border-color, rgba(255, 255, 255, 0.2));
+  color: var(--text-primary, #e2e8f0);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-weight: 600;
+}
