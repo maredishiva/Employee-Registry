@@ -17,7 +17,7 @@ A React.js-based Employee Management web application that allows users to **crea
 
 ### 1. Clone the Repository
   
-    git clone https://github.com/your-username/employee-registry.git)
+    git clone https://github.com/maredishiva/employee-registry.git)
     
     cd employee-registry
 
@@ -75,7 +75,6 @@ This will start the server at
 
 **User Roles:**
 - **Admin** – Full access to create, update, delete employees and view activity logs
-- **Employee** – Can only view employee details and filter employees
 
 **Features:**
 - User registration with email and password validation
